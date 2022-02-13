@@ -1,15 +1,20 @@
-## Starting MERN Application {ignore=true}
+
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
-- [Creating files, writing boiler plate, and establishing connection to database](#creating-files-writing-boiler-plate-and-establishing-connection-to-database)
-- [Writing Schemas - models folder](#writing-schemas-models-folder)
-- [Add API endpoint routes so the server can be used to perform the CRUD Operations - routes folder](#add-api-endpoint-routes-so-the-server-can-be-used-to-perform-the-crud-operations-routes-folder)
+- [Backend](#backend)
+  - [Creating files, writing boiler plate, and establishing connection to database](#creating-files-writing-boiler-plate-and-establishing-connection-to-database)
+  - [Writing Schemas - models folder](#writing-schemas-models-folder)
+  - [Add API endpoint routes so the server can be used to perform the CRUD Operations - routes folder](#add-api-endpoint-routes-so-the-server-can-be-used-to-perform-the-crud-operations-routes-folder)
 
 <!-- /code_chunk_output -->
+
+
 <hr>
+
+## Backend
 
 ### Creating files, writing boiler plate, and establishing connection to database
 
