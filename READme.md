@@ -10,6 +10,7 @@
 
 <!-- /code_chunk_output -->
 <hr>
+
 ### Creating files, writing boiler plate, and establishing connection to database
 
 1. MongoDB Atlas
