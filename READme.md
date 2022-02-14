@@ -124,17 +124,27 @@
 
 ### Setting up boilerplate, removing files if you so choose, and importing packages
 
-1. `import {BrowserRouter as Router, Route} from 'react-router-dom'` if you would like to use BrowserRouter
+1. `import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'` if you would like to use BrowserRouter
     - syntax for router components will look like this in the main app component vvv
     -   `<Router>`
-            `<Route path="/user" component={CreateUser} />`
+            `<div className="container">`
+                `<Navbar />`
+                `<br />`
+                `<Routes>`
+                    `<Route path="/" exact element={<ExercisesList/>} />`
+                    `<Route path="/edit/:id" element={<EditExercise/>} />`
+                    `<Route path="/create" element={<CreateExercise/>} />`
+                    `<Route path="/user" element={<CreateUser/>} />`
+                `</Routes>`
+            `</div>`
         `</Router>`
-        - each path has a route tag, the url path, and the component associated with that path
+        - in V6 the syntax is different. You put everything in the App component inside the <b>Router</b>, but everything with a `<Route>` tag has to go inside another tag called `<Routes>`
+        - instead of the tag being labeled "component", you now put your component titles in an "element" prop. You also have to wrap the component name is tags (< />) 
 2. Remove react unnecessary boilerplate
-3. import components that you plan to use in the App component at the top of the App.js file 
+3. import components that you plan to use in the App component at the top of the App.js file i.e:
     - `import Navbar from "./components/navbar.component";`
 
 ### Start building out your components 
 
-1. Aside from the typical boiler plate, import link from 'react-router-dom' if youre using RRD, this will allow us to link to differnt routes
-    - `import { Link } from 'react-router-dom';`
+1. Aside from the typical boiler plate, import link from 'react-router-dom' if youre using react-router-dom, this will allow us to link to differnt routes
+    - `import { Link } from 'react-router-dom';` if you are using "Link" tags
