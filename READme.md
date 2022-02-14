@@ -8,6 +8,9 @@
   - [Creating files, writing boiler plate, and establishing connection to database](#creating-files-writing-boiler-plate-and-establishing-connection-to-database)
   - [Writing Schemas - models folder](#writing-schemas-models-folder)
   - [Add API endpoint routes so the server can be used to perform the CRUD Operations - routes folder](#add-api-endpoint-routes-so-the-server-can-be-used-to-perform-the-crud-operations-routes-folder)
+- [Frontend](#frontend)
+  - [Setting up boilerplate, removing files if you so choose, and importing packages](#setting-up-boilerplate-removing-files-if-you-so-choose-and-importing-packages)
+  - [Start building out your components](#start-building-out-your-components)
 
 <!-- /code_chunk_output -->
 
@@ -113,5 +116,25 @@
                 `});`
             `.catch(err => res.status(400).json("Error: " + err));`
         `});`
-        - updating specific data
-        - 
+        - updating specific data via the id in the url parameter
+        - overwrite the data with the new input provided by the user
+        - save it to the database via `exercise.save()`
+
+## Frontend
+
+### Setting up boilerplate, removing files if you so choose, and importing packages
+
+1. `import {BrowserRouter as Router, Route} from 'react-router-dom'` if you would like to use BrowserRouter
+    - syntax for router components will look like this in the main app component vvv
+    -   `<Router>`
+            `<Route path="/user" component={CreateUser} />`
+        `</Router>`
+        - each path has a route tag, the url path, and the component associated with that path
+2. Remove react unnecessary boilerplate
+3. import components that you plan to use in the App component at the top of the App.js file 
+    - `import Navbar from "./components/navbar.component";`
+
+### Start building out your components 
+
+1. Aside from the typical boiler plate, import link from 'react-router-dom' if youre using RRD, this will allow us to link to differnt routes
+    - `import { Link } from 'react-router-dom';`
