@@ -11,6 +11,10 @@
 - [Frontend](#frontend)
   - [Setting up boilerplate, removing files if you so choose, and importing packages](#setting-up-boilerplate-removing-files-if-you-so-choose-and-importing-packages)
   - [Start building out your components](#start-building-out-your-components)
+    - [Class vs Funcitonal components](#class-vs-funcitonal-components)
+      - [Class Components](#class-components)
+      - [Functional components](#functional-components)
+  - [Connecting frontend to Backend](#connecting-frontend-to-backend)
 
 <!-- /code_chunk_output -->
 
@@ -120,6 +124,8 @@
         - overwrite the data with the new input provided by the user
         - save it to the database via `exercise.save()`
 
+<hr>
+
 ## Frontend
 
 ### Setting up boilerplate, removing files if you so choose, and importing packages
@@ -148,3 +154,35 @@
 
 1. Aside from the typical boiler plate, import link from 'react-router-dom' if youre using react-router-dom, this will allow us to link to differnt routes
     - `import { Link } from 'react-router-dom';` if you are using "Link" tags
+
+#### Class vs Funcitonal components 
+##### Class Components
+- Class components are "stateful" meaning state can be used inside class based components
+- Class components have a constructor function, this function is what is called to create the component on render 
+    - constructor takes in (props) as its argument, as is where you declare your state as an object, i.e:
+        - `this.state = { name: "", age: 100, isMale: true }`
+        - this object declares your initial state for your key value pairs
+    - also must include `super(props)` inside constructor before state if you want to pass (props) up to the parent constructor function
+    - to change state you use `this.setState`
+##### Functional components
+- Functional components are "stateless" meaning in order to use state you need to use React hooks 
+
+2. State is how you create variables in react
+3. in order to change state you need to create methods inside the class component, above the render() method, and use the setState function inside that new method, i.e:
+    -   `onChangeUsername(e) {`
+            `this.setState({`
+             `username: e.target.value,`
+            `});`
+        `}`
+4. the <b>bind</b> keyword refers to binding the "this" inside each method to the class which it is refering (the class the method is inside of) 
+    - without the `bind`, "this" would come back undefined
+5. `componentDidMount` is a react lifestyle method, react automatically calls these at different points, "componentDidMount is called right before anything displays on the page
+
+### Connecting frontend to Backend
+
+1. `npm install axios`
+    - axios allows frontend to send HTTP requests to the server endpoint on the backend 
+    - link the axios request to the http endpoint that is related to what you are either posting to or recieving 
+        - `axios.post('http://localhost:5000/users/add', user)`
+            `.then(res => console.log(res.data))`
+        - The "user", after the endpoint, is a json object sent to the server with the appropriate data
