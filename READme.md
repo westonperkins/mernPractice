@@ -187,6 +187,17 @@
         - `axios.post('http://localhost:5000/users/add', user)`
             `.then(res => console.log(res.data))`
         - The "user", after the endpoint, is a json object sent to the server with the appropriate data
+2. Order of Operations
+    - Write an axios request as seen above to a given endpoint, in this case: '/users/add', if its a point request include the necessary data to post, "user in this case" 
+    - This then gets logged to the database by the route on the backend, i.e 
+        -   `router.route("/add").post((req, res) => {`
+                `const username = req.body.username;`
+                `const newUser = new User({ username });`
+                `newUser`
+                `.save()`
+                `.then(() => res.json("User added!"))`
+                `.catch((err) => res.status(400).json("Error: " + err));`
+            `});`
 
 #### Some weird updates and incompatibilities between V5 and V6 of react-router-dom
 - `this.props.match.params.id` doesn't work anymore, you are not able to access the id in this way anymore
