@@ -15,6 +15,7 @@
       - [Class Components](#class-components)
       - [Functional components](#functional-components)
   - [Connecting frontend to Backend](#connecting-frontend-to-backend)
+    - [Some weird updates and incompatibilities between V5 and V6 of react-router-dom](#some-weird-updates-and-incompatibilities-between-v5-and-v6-of-react-router-dom)
 
 <!-- /code_chunk_output -->
 
@@ -186,3 +187,11 @@
         - `axios.post('http://localhost:5000/users/add', user)`
             `.then(res => console.log(res.data))`
         - The "user", after the endpoint, is a json object sent to the server with the appropriate data
+
+#### Some weird updates and incompatibilities between V5 and V6 of react-router-dom
+- `this.props.match.params.id` doesn't work anymore, you are not able to access the id in this way anymore
+    - you must use `import { withRouter } from "react-router";`, and then export the class based component in this way `export default withRouter(EditExercise);`
+    - If you are using functional components you can use the `useParams()` hook, you can also just make a functionnal component in the class based file and use that hook but it seems like more work. If you do use `{with router}` you may need to downgrade for the time being in which case, the new V6 syntax, i.e 
+        -  `<Routes>`
+                    `<Route path="/" exact element={<ExercisesList/>} />`
+        - this will not work, remove the `<Routes>` tag, change "element" back to component and get rid of thet tags inside the {} holding the component name
